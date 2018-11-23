@@ -1,7 +1,7 @@
 package com.cmj.thread;
 
-import com.cmj.thread.task.Task;
-import com.cmj.thread.task.Task2;
+import com.cmj.thread.concurrent.ThreadPoolTask;
+import com.cmj.thread.concurrent.ScheduleTask;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ThreadApplicationTests {
 
     @Autowired
-    private Task task;
+    private ThreadPoolTask task;
 
     @Test
     public void test() throws Exception {
@@ -22,15 +22,14 @@ public class ThreadApplicationTests {
         task.doTaskTwo();
         task.doTaskThree();
 
-        Thread.currentThread().join();
     }
 
     @Autowired
-    private Task2 task2;
+    private ScheduleTask task2;
 
     @Test
     public void test2(){
-//        task2.test();
+        task2.test();
     }
 
 }
